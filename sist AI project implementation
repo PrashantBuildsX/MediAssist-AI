@@ -1,0 +1,24 @@
+ .gitignore                                         |   1 [32m+[m
+ .../data_level0.bin                                | Bin [31m0[m -> [32m167600[m bytes
+ .../header.bin                                     | Bin [31m0[m -> [32m100[m bytes
+ .../length.bin                                     | Bin [31m0[m -> [32m400[m bytes
+ .../link_lists.bin                                 |   0
+ .../data_level0.bin                                | Bin [31m0[m -> [32m167600[m bytes
+ .../header.bin                                     | Bin [31m0[m -> [32m100[m bytes
+ .../length.bin                                     | Bin [31m0[m -> [32m400[m bytes
+ .../link_lists.bin                                 |   0
+ .../data_level0.bin                                | Bin [31m0[m -> [32m167600[m bytes
+ .../header.bin                                     | Bin [31m0[m -> [32m100[m bytes
+ .../length.bin                                     | Bin [31m0[m -> [32m400[m bytes
+ .../link_lists.bin                                 |   0
+ ai-engine/embeddings/embedder.py                   |  35 [32m+++++++[m
+ ai-engine/ingest_pdf.py                            |  81 [32m++++++++++++++++[m
+ ai-engine/ingestion/__init__.py                    |   0
+ ai-engine/test_embedder.py                         |  30 [32m++++++[m
+ ai-engine/test_medical_pipeline.py                 |  71 [32m++++++++++++++[m
+ ai-engine/test_pipeline_retrieval.py               |  32 [32m+++++++[m
+ ai-engine/test_vector_store.py                     |  60 [32m++++++++++++[m
+ ai-engine/vector_store/chroma_store.py             | 103 [32m+++++++++++++++++++++[m
+ data/medical_diagnosis_manual.pdf                  | Bin [31m0[m -> [32m20159515[m bytes
+ temp-rag                                           |   1 [32m+[m
+ 23 files changed, 414 insertions(+)
