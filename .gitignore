@@ -29,6 +29,9 @@ build/
 chroma_db/
 chroma/
 *.chromadb
+# Generated ChromaDB databases
+**/chroma_db*/
+**/chroma/
 
 # Uploaded medical documents
 uploads/
