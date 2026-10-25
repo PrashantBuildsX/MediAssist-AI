@@ -8,3 +8,5 @@ llama-cpp-python
 numpy
 pandas
 tiktoken
+groq
+python-dotenv
