@@ -1,0 +1,3 @@
+[submodule "temp-rag"]
+    path = temp-rag
+    url = https://github.com/RPPandey02/RagBased_medical_assistant.git
