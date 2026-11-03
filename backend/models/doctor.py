@@ -1,7 +1,7 @@
-from sqlalchemy import ForeignKey, Integer, String
+﻿from sqlalchemy import ForeignKey, Integer, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from database.connection import Base
+from backend.database.connection import Base
 
 
 class Doctor(Base):

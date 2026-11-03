@@ -1,9 +1,9 @@
-from datetime import datetime, timezone
+﻿from datetime import datetime, timezone
 
 from sqlalchemy import DateTime, ForeignKey, Integer, String
 from sqlalchemy.orm import Mapped, mapped_column
 
-from database.connection import Base
+from backend.database.connection import Base
 
 
 class Conversation(Base):
