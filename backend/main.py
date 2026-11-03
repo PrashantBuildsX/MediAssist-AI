@@ -1,3 +1,4 @@
+
 import sys
 from pathlib import Path
 
@@ -12,16 +13,24 @@ sys.path.insert(0, str(AI_ENGINE_PATH))
 
 from rag_engine import RAGEngine  # noqa: E402
 
+# Import authentication router
+from backend.routers.auth import router as auth_router
 
+
+# Initialize FastAPI application
 app = FastAPI(
     title="MediAssist AI API",
     description="API for document-grounded medical question answering.",
     version="0.1.0",
 )
 
+# Register authentication routes
+app.include_router(auth_router)
+
 rag_engine = None
 
 
+# Request and response schemas for RAG
 class AskRequest(BaseModel):
     question: str = Field(
         min_length=1,
@@ -42,6 +51,7 @@ class AskResponse(BaseModel):
     sources: list[SourceResponse]
 
 
+# Initialize RAG engine when application starts
 @app.on_event("startup")
 def initialize_rag_engine():
     global rag_engine
@@ -62,6 +72,8 @@ def initialize_rag_engine():
     except Exception as exc:
         print(f"RAG engine initialization failed: {exc}")
 
+
+# Health check endpoint
 @app.get("/health")
 def health_check():
     return {
@@ -70,6 +82,7 @@ def health_check():
     }
 
 
+# Existing RAG question-answering endpoint
 @app.post("/api/ask", response_model=AskResponse)
 def ask_question(request: AskRequest):
     if rag_engine is None:
@@ -85,10 +98,16 @@ def ask_question(request: AskRequest):
             answer=result["answer"],
             sources=result["sources"],
         )
+
     except ValueError as exc:
-        raise HTTPException(status_code=400, detail=str(exc)) from exc
+        raise HTTPException(
+            status_code=400,
+            detail=str(exc),
+        ) from exc
+
     except Exception as exc:
         print(f"Question processing failed: {exc}")
+
         raise HTTPException(
             status_code=500,
             detail="The question could not be processed.",
