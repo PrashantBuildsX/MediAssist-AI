@@ -15,6 +15,7 @@ from rag_engine import RAGEngine  # noqa: E402
 
 # Import authentication router
 from backend.routers.auth import router as auth_router
+from backend.routers.access import router as access_router
 
 
 # Initialize FastAPI application
@@ -25,7 +26,9 @@ app = FastAPI(
 )
 
 # Register authentication routes
+# Register authentication and access-management routes
 app.include_router(auth_router)
+app.include_router(access_router)
 
 rag_engine = None
 
